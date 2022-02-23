@@ -76,7 +76,7 @@
     file_id, uuid, parent_uuid, file_path, file_type, file_size, project_id, file_name, 
     visit_count, last_comment_time, comment_count
   </sql>
-  <select id="selectByExample" parameterType="admin.domain.fileExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="admin.domain.file" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -101,7 +101,7 @@
     delete from tb_project_file
     where file_id = #{fileId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="admin.domain.fileExample">
+  <delete id="deleteByExample" parameterType="admin.domain.file">
     delete from tb_project_file
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -190,7 +190,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="admin.domain.fileExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="admin.domain.file" resultType="java.lang.Long">
     select count(*) from tb_project_file
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
